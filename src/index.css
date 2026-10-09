@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #241A12;
+  --color-body: #4C3D30;
+  --color-muted: #5F4F40;
+  --color-accent: #8A4B14;
+  --color-ember: #A3360E;
+  --color-paper: #FDFBF7;
+  --color-surface: #F4EEE4;
+  --color-line: #E3D8C8;
+  --color-line-strong: #AE9E89;
+  --color-dark: #241A12;
+  --color-dark2: #30241A;
+  --color-ondark: #F7F2EA;
+  --color-dimmed: #B6A795;
+  --color-accent-lt: #E8B882;
+  --color-ember-lt: #F0A080;
+  --color-ok: #1E5A3A;
+  --color-ok-bg: #EDF5F0;
+  --color-warn: #8A4B06;
+  --color-warn-bg: #FCF4E9;
+  --color-lose: #9B1C33;
+  --color-lose-bg: #FCEFF1;
+
+  --font-display: "Bitter", Georgia, serif;
+  --font-sans: "Figtree", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --text-eyebrow: 0.7rem;
+  --text-display: clamp(1.75rem, 3.8vw, 2.75rem);
+  --text-h1: clamp(1.5rem, 3vw, 2.125rem);
+  --text-h2: clamp(1.25rem, 2.2vw, 1.625rem);
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { background: var(--color-paper); color: var(--color-body); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4 { font-family: var(--font-display); color: var(--color-ink); letter-spacing: -0.012em; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 2px; }
+  ::selection { background: #F0D9B8; color: var(--color-ink); }
+}
+
+@layer utilities {
+  .eyebrow { font-family: var(--font-mono); font-size: var(--text-eyebrow); letter-spacing: 0.1em; text-transform: uppercase; }
+  .shell { margin-inline: auto; max-width: 80rem; padding-inline: 1rem; }
+  @media (min-width: 768px) { .shell { padding-inline: 1.75rem; } }
+  .tnum { font-variant-numeric: tabular-nums; }
+  .money { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; scroll-behavior:auto!important; }
+}
